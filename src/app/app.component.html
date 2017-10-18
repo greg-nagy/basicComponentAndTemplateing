@@ -2,11 +2,17 @@
 
 <app-event></app-event>
 
+<hr>
+{{ title | uppercase }}
+<hr>
+{{ pipeDemo | json}}
+<hr>
+
 <ul>
   <li *ngFor="let event of events">{{ event }}</li>
 </ul>
 
-<input type="text" [(ngModel)]="inputContent">
+<input type="number" [(ngModel)]="inputContent">
 <div>
   {{inputContent}}
 </div>

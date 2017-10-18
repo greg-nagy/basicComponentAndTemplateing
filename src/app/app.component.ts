@@ -6,11 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'angular kiraly es netacademia is cool :)';
   events = ['sziget', 'efott', 'fezen', 'szin'];
   show = true;
   klikkeljunke = false;
   inputContent: string;
+
+  pipeDemo = [
+    {
+      'id': 1,
+      'name': 'puffancs'
+    },
+    {
+      'id': 2,
+      'name': 'Toj'
+    },
+    {
+      'id': 3,
+      'name': 'Balu'
+    }
+  ];
 
   toggle() {
     this.show = !this.show;
