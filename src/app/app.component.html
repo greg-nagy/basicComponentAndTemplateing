@@ -2,5 +2,33 @@
 
 <app-event></app-event>
 
-<h3>alma</h3>
-<h3>alma</h3>
+<ul>
+  <li *ngFor="let event of events">{{ event }}</li>
+</ul>
+
+<input type="text" [(ngModel)]="inputContent">
+<div>
+  {{inputContent}}
+</div>
+
+<button
+  (click)="toggle()"
+  (dblclick)="demo($event)"
+  [disabled]="klikkeljunke"
+>Toggle</button>
+
+<div *ngIf="show">
+  <p>Nagy Gergo</p>
+</div>
+
+<div [ngClass]="{ 'valami': show }">
+  <p>ngClass demo</p>
+</div>
+
+<app-alma></app-alma>
+<app-alma></app-alma>
+<app-alma></app-alma>
+<app-alma></app-alma>
+<app-alma></app-alma>
+<app-alma></app-alma>
+<app-alma></app-alma>
