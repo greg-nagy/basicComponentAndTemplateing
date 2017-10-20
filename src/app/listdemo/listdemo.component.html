@@ -6,8 +6,15 @@
   </li>
 </ul>
 
-<input type="text" #newEventNameInput>
-<button (click)="add(newEventNameInput)">Save</button>
+<div>
+  <label for="eventname">Uj esemeny neve:</label>
+  <input type="text" #newEventNameInput id="eventname">
+</div>
+<div>
+  <label for="eventpic">Uj esemenyhez tartozo kep URL:</label>
+  <input type="text" #newEventPicInput id="eventpic">
+</div>
+<button (click)="add(newEventNameInput, newEventPicInput)">Save</button>
 
 <pre>
   {{ events | json }}
