@@ -1,9 +1,13 @@
 <ul>
   <li *ngFor="let ev of events">
+    <img [src]="ev.pic" alt="" width="50px" height="50px">
     {{ ev.name }}
     <button (click)="delete(ev.id)">Remove</button>
   </li>
 </ul>
+
+<input type="text" #newEventNameInput>
+<button (click)="add(newEventNameInput)">Save</button>
 
 <pre>
   {{ events | json }}
