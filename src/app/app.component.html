@@ -1,40 +1,42 @@
-<p>hello netacademia</p>
+<app-listdemo></app-listdemo>
 
-<app-event></app-event>
+<!--<p>hello netacademia</p>-->
 
-<hr>
-{{ title | uppercase }}
-<hr>
-{{ pipeDemo | json}}
-<hr>
+<!--<app-event></app-event>-->
 
-<ul>
-  <li *ngFor="let event of events">{{ event }}</li>
-</ul>
+<!--<hr>-->
+<!--{{ title | uppercase }}-->
+<!--<hr>-->
+<!--{{ pipeDemo | json}}-->
+<!--<hr>-->
 
-<input type="number" [(ngModel)]="inputContent">
-<div>
-  {{inputContent}}
-</div>
+<!--<ul>-->
+  <!--<li *ngFor="let event of events">{{ event }}</li>-->
+<!--</ul>-->
 
-<button
-  (click)="toggle()"
-  (dblclick)="demo($event)"
-  [disabled]="klikkeljunke"
->Toggle</button>
+<!--<input type="number" [(ngModel)]="inputContent">-->
+<!--<div>-->
+  <!--{{inputContent}}-->
+<!--</div>-->
 
-<div *ngIf="show">
-  <p>Nagy Gergo</p>
-</div>
+<!--<button-->
+  <!--(click)="toggle()"-->
+  <!--(dblclick)="demo($event)"-->
+  <!--[disabled]="klikkeljunke"-->
+<!--&gt;Toggle</button>-->
 
-<div [ngClass]="{ 'valami': show }">
-  <p>ngClass demo</p>
-</div>
+<!--<div *ngIf="show">-->
+  <!--<p>Nagy Gergo</p>-->
+<!--</div>-->
 
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
+<!--<div [ngClass]="{ 'valami': show }">-->
+  <!--<p>ngClass demo</p>-->
+<!--</div>-->
+
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->

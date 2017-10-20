@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let ev of events">
+    {{ ev.name }}
+    <button (click)="delete(ev.id)">Remove</button>
+  </li>
+</ul>
+
+<pre>
+  {{ events | json }}
+</pre>

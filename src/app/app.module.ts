@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { AlmaComponent } from './alma/alma.component';
 import { EventComponent } from './event/event.component';
 import { FormsModule } from '@angular/forms';
+import { ListdemoComponent } from './listdemo/listdemo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlmaComponent,
-    EventComponent
+    EventComponent,
+    ListdemoComponent
   ],
   imports: [
     BrowserModule,
