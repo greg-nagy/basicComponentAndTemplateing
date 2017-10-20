@@ -9,6 +9,7 @@ import { EventModel } from './event-model';
 export class ListdemoComponent {
   // XSS challange, image tag src, miau szoveggel szeretnek egy alert-et
   events: EventModel[];
+  modifyEvent: EventModel;
 
   constructor() {
     this.events = [
@@ -18,12 +19,12 @@ export class ListdemoComponent {
         pic: 'http://sziget.hu/templates/sziget2017-2/images/logo.png'
       },
       {
-        id: 33,
+        id: 2,
         name: 'fezen',
         pic: 'http://www.fezenklub.hu/_user/browser/Image/2016_17/FEZEN_2017_WHITE%20(1).jpg'
       },
       {
-        id: 2,
+        id: 3,
         name: 'rockmaraton',
         pic: 'http://hammerworld.hu/images/upload/01arokka17.jpg?20110201-164743'
       }
@@ -40,13 +41,43 @@ export class ListdemoComponent {
     //   return x.id > y.id ? x : y;
     // }).id;
     // console.log(puf);
+
+    this.modifyEvent = new EventModel('');
   }
 
-  add(newEventNameInput: HTMLInputElement, newEventInputPic: HTMLInputElement) {
-    const maxId = this.events.reduce((x, y) => x.id > y.id ? x : y).id;
-    this.events = [...this.events, new EventModel(maxId + 1, newEventNameInput.value, newEventInputPic.value)];
+  save(newEventNameInput: HTMLInputElement, newEventInputPic: HTMLInputElement) {
+    if (this.modifyEvent.id === 0) {
+      // itt meg tudjuk, hogy uj elemet akarunk letrehozni, hiszen biztositjuk
+      // mindenhol mashol, hogy ha nem szerkesztunk akkor id 0 legyen
+      const maxId = this.events.reduce((x, y) => x.id > y.id ? x : y).id;
+      this.events = [...this.events, new EventModel(newEventNameInput.value, maxId + 1, newEventInputPic.value)];
+    } else {
+      // itt tudjuk, hogy edit szakasz van, azaz meg kell keresni a megfelelo elemet az id alapjan
+      this.events = this.events.map((ev) => {
+        if (ev.id === this.modifyEvent.id) {
+          // itt tudjuk, hogy ezt az elemet kell szerkeszteni
+          return {
+            id: ev.id,
+            name: newEventNameInput.value,
+            pic: newEventInputPic.value
+          };
+        } else {
+          // itt tudjuk, hogy nem akarunk modositani
+          return ev;
+        }
+      });
+
+      // takaritsunk fel magunk utan
+      this.modifyEvent = new EventModel('');
+    }
     newEventNameInput.value = '';
     newEventInputPic.value = '';
+  }
+
+  edit(id: number) {
+    // HA biztos hogy van ilyen
+    // HA tudom hogy mindig CSAK 1 ilyen
+    this.modifyEvent = this.events.filter((ev) => ev.id === id)[0];
   }
 
   delete(id: number) {
